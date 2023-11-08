@@ -1,0 +1,92 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.koinsimple"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org\""
+        buildConfigField "String", "IMAGE_URL", "\"https://image.tmdb.org/t/p/original\""
+        buildConfigField "String", "API_KEY", "\"23aba22dfab57e9cf4a3a2cb12d7048e\""
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    namespace 'com.example.koinsimple'
+    android.buildFeatures.buildConfig true
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+
+    // Lifecycle libraries
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+
+    //by viewModels
+    implementation "androidx.fragment:fragment-ktx:1.6.2"
+
+    def retrofitVersion = "2.9.0"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
+
+    //Moshi
+    implementation "com.squareup.retrofit2:converter-moshi:2.4.0"
+
+    //Koin
+    implementation 'io.insert-koin:koin-bom:3.5.1'
+    implementation 'io.insert-koin:koin-android'
+    implementation 'io.insert-koin:koin-test-junit4'
+
+
+    // Navigation libraries
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.5'
+    implementation "androidx.fragment:fragment-ktx:1.6.2"
+
+    //COIL
+    implementation 'io.coil-kt:coil:2.2.2'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+kapt {
+    correctErrorTypes true
+}

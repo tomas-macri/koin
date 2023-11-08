@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Koin Simple App</string>
+    <string name="popular_movies">Popular</string>
+    <string name="action_movies">Action</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="no_hay_internet">No hay conexión a internet</string>
+    <string name="error_cargar_populares">Ha ocurrido un error al cargar las películas populares</string>
+    <string name="overview">Overview:</string>
+    <string name="budget">Budget:</string>
+    <string name="unknown">Unknown</string>
+    <string name="error_cargar_movie">Ha ocurrido un error al cargar la película</string>
+</resources>
