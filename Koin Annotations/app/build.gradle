@@ -6,7 +6,8 @@ plugins {
 
 }
 android {
-    //Necesario para guardar los módulos generados con Koin Annotations (@Module)
+    //Necesario para que los módulos generados con Koin Annotations (@Module) se guarden en nuestra variante
+    // (si no se pone, se guardan en la carpeta de código generado y se pierden en cada compilación)
     applicationVariants.configureEach { variant ->
         variant.sourceSets.java.each {
             it.srcDirs += "build/generated/ksp/$variant.name/kotlin"
